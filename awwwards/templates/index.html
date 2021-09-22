@@ -1,10 +1,88 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap5 %}
 
-</body>
-</html>
+
+{% block content %}
+
+<!-- MODAL -->
+<form action="{% url 'index'%}" method="POST" enctype="multipart/form-data" id="newProjectForm">
+<div class="modal fade" id="newProjectModal" tabindex="-1" aria-labelledby="newProjectModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-uppercase" id="newProjectModalLabel"> New Project</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                {% csrf_token %}
+                {% bootstrap_form upload_form%}
+                <button type="submit" class="btn btn-primary w-100">POST</button>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+<!-- END OF MODAL -->
+
+<div class="container my-5 p-5 content_wrapper">
+    <div class="searchform my-2">
+        <form action="{% url 'index'%}" method="POST" class="d-flex">
+            <input class="form-control" type="text" name="search" id="search" placeholder="Search for a project...">
+            <button class="btn btn-primary" type="submit"><i class='bx bx-search'></i></button>
+        </form>
+    </div>
+
+    {% if user.is_authenticated %}
+    <button class="btn btn-outline-primary text-uppercase rounded-0 mt-4" data-bs-toggle="modal"
+        data-bs-target="#newProjectModal">New <i class='bx bx-plus'></i></button>
+    {% else %}
+    <a class="btn btn-outline-secondary text-uppercase rounded-0 mt-4" href="{% url 'login'%}">New <i class='bx bx-plus'></i></a>
+    {% endif %}
+
+    <div class="top_of_week my-5 pt-4">
+        <h4>Projects</h4>
+        <hr>
+        <div class="projects d-flex">
+            <!-- Projects Loop -->
+            {% for project in projects%}
+            <div class="single_project my-3">
+                <div class="thumbnail position-relative">
+                    <div class="project_name position-absolute">
+                        <p class="rating">{{project.get_overall_average_rating}}</p>
+                        <div class="stars">
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star-half'></i>
+                            <i class='bx bx-star'></i>
+                            <i class='bx bx-star'></i>
+                            <i class='bx bx-star'></i>
+                        </div>
+                        <a class="name" href="{% url 'project' project_id=project.id%}">{{ project.name}}</a>
+                        <p class="description">{{project.description | truncatechars:60}}</p>
+                    </div>
+                    <img src="{{project.screenshot.url}}" alt="">        
+                </div>
+                <div class="posted_by d-flex my-2">
+                    <div class="profilepic">
+                        <img src="{{project.owner.profile_pic.url}}" alt="">
+                    </div>
+                    <div class="username mx-3">
+                        <div class="fullname">{{project.owner.user.first_name | title}} {{project.owner.user.last_name | title}}</div>
+                        <p><em>{{ project.posted_at | date}}</em></p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <!-- End of projects loop -->  
+    </div>
+
+
+    
+    
+</div>
+{% endblock %}
