@@ -10,7 +10,7 @@ html, * {
 
 body {
   width: 100%;
-  background-color: #F7F5F4;
+  background-color: blue;
 }
 
 a {
@@ -32,7 +32,7 @@ li {
 .auth-form-wrapper .logo {
   font-family: 'Rum Raisin', cursive;
   font-size: 3rem;
-  color: #d6495c;
+  color: blue;
   text-decoration: none;
   text-align: center;
 }
