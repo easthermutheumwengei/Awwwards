@@ -71,14 +71,14 @@ li {
 }
 
 .auth-form-wrapper .form .btn {
-  background-color: #d6495c;
+  background-color: blue;
   border: 1px solid #d6495c;
   text-transform: uppercase;
   border-radius: 0;
 }
 
 nav {
-  background-color: #d6495c;
+  background-color: blue;
   height: 80px;
 }
 
