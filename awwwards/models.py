@@ -14,7 +14,7 @@ class Profile(models.Model):
     role = models.CharField(max_length=150)
     github = models.CharField(max_length=200, blank=True)
     linkedin = models.CharField(max_length=200, blank=True)
-    profile_pic = CloudinaryField('images', default='image/upload/v1626430054/default_zogkvr.png')
+    profile_pic = CloudinaryField('images', default='image/upload/wall2.jpg')
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
