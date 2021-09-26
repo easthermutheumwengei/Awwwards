@@ -14,7 +14,7 @@ body {
 }
 
 a {
-  color: #d6495c;
+  color: blue;
 }
 
 a:hover {
@@ -72,14 +72,14 @@ li {
 
 .auth-form-wrapper .form .btn {
   background-color: blue;
-  border: 1px solid #d6495c;
+  border: 1px solid blue;
   text-transform: uppercase;
   border-radius: 0;
 }
 
 nav {
   background-color: blue;
-  height: 80px;
+  height: 60px;
 }
 
 nav .nav-wrapper {
@@ -128,14 +128,14 @@ nav .nav-wrapper .menu ul li a {
 }
 
 .content_wrapper .searchform form .btn {
-  background-color: #d6495c;
-  border: 1px solid #d6495c;
+  background-color: blue;
+  border: 1px solid blue;
   outline: none;
 }
 
 .content_wrapper .searchform form input {
   outline: none;
-  border: 1px solid #d6495c;
+  border: 1px solid blue;
 }
 
 .projects {
@@ -168,7 +168,7 @@ nav .nav-wrapper .menu ul li a {
 }
 
 .single_project .thumbnail .project_name {
-  background-color: #d6495c;
+  background-color: blue;
   width: 100%;
   bottom: 0;
   height: 50px;
@@ -191,8 +191,8 @@ nav .nav-wrapper .menu ul li a {
 }
 
 .single_project .thumbnail:hover .project_name {
-  background: -webkit-gradient(linear, left bottom, left top, from(#d6495c), color-stop(#d6495c), to(transparent));
-  background: linear-gradient(0deg, #d6495c, #d6495c, transparent);
+  background: -webkit-gradient(linear, left bottom, left top, from(blue), color-stop(blue), to(transparent));
+  background: linear-gradient(0deg, blue, blue, transparent);
   width: 100%;
   bottom: 0;
   height: 100%;
@@ -249,7 +249,7 @@ nav .nav-wrapper .menu ul li a {
 }
 
 .profile h3, .profile h4 {
-  color: #d6495c;
+  color: blue;
 }
 
 .profile .profile_pic {
@@ -271,13 +271,13 @@ nav .nav-wrapper .menu ul li a {
 }
 
 .profile .btn {
-  color: #d6495c;
-  border: 1px solid #d6495c;
+  color: blue;
+  border: 1px solid blue;
 }
 
 .profile .btn:hover {
-  border: 1px solid #d6495c;
-  background-color: #d6495c;
+  border: 1px solid blue;
+  background-color: blue;
   color: white;
 }
 
@@ -290,7 +290,7 @@ nav .nav-wrapper .menu ul li a {
 
 .profile .details .project-overall-rating {
   font-size: 3rem;
-  color: #d6495c;
+  color: blue;
   font-weight: 900;
 }
 
@@ -302,7 +302,7 @@ nav .nav-wrapper .menu ul li a {
 }
 
 .profile .details .category-rating .ratingbar .bar {
-  background-color: #d6495c;
+  background-color: blue;
   height: 100%;
 }
 
@@ -312,15 +312,15 @@ nav .nav-wrapper .menu ul li a {
 }
 
 .stars {
-  color: #d6495c;
+  color: blue;
 }
 
 hr {
-  color: #d6495c;
+  color: blue;
 }
 
 .live-button, .repo-button {
-  background-color: #d6495c;
+  background-color: blue;
   color: white !important;
   border-radius: 0;
 }
@@ -334,7 +334,7 @@ hr {
 #newProjectModal .modal-dialog .modal-content .modal-header .modal-title,
 #updateProfileForm .modal-dialog .modal-content .modal-header .modal-title,
 #newProjectForm .modal-dialog .modal-content .modal-header .modal-title {
-  color: #d6495c;
+  color: blue;
 }
 
 #newProjectModal .modal-dialog .modal-content .modal-body input, #newProjectModal .modal-dialog .modal-content .modal-body textarea,
@@ -350,7 +350,7 @@ hr {
 #newProjectModal .modal-dialog .modal-content .modal-body .btn,
 #updateProfileForm .modal-dialog .modal-content .modal-body .btn,
 #newProjectForm .modal-dialog .modal-content .modal-body .btn {
-  background-color: #d6495c;
+  background-color: blue;
   border-radius: 0;
   outline: none;
   border: none;
@@ -358,14 +358,14 @@ hr {
 }
 
 .content_wrapper > button {
-  border: 1px solid #d6495c;
-  color: #d6495c;
+  border: 1px solid blue;
+  color: blue;
 }
 
 .content_wrapper > button:hover {
-  background-color: #d6495c;
+  background-color: blue;
   color: white;
-  border: 1px solid #d6495c;
+  border: 1px solid blue;
 }
 
 .live_link, .github_link {
@@ -379,6 +379,6 @@ hr {
 }
 
 .live_link:hover, .github_link:hover {
-  color: #d6495c;
+  color: blue;
 }
 /*# sourceMappingURL=style.css.map */
