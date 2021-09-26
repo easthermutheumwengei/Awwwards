@@ -6,7 +6,7 @@
 {% block content %}
 
 <!-- MODAL -->
-<form action="{% url 'profile'%}" method="POST" enctype="multipart/form-data" id="updateProfileForm">
+<form action="{% url 'profile' profile.id%}" method="POST" enctype="multipart/form-data" id="updateProfileForm">
     <div class="modal fade" id="updateProfileModal" tabindex="-1" aria-labelledby="updateProfileModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
@@ -31,7 +31,7 @@
     <div class="profile">
         <div class="d-flex mb-4">
             <div class="profile_pic">
-            <img src="{{user.profile.profile_pic.url}}" alt="">
+            <img src="{{profile.profile_pic.url}}" alt="">
         </div>
         <div class="details">
             <ul>
@@ -71,7 +71,7 @@
                             <i class='bx bx-star'></i>
                             <i class='bx bx-star'></i>
                         </div>
-                        <a class="name" href="{% url 'project' project_id=project.id%}">{{ project.name}}</a>
+                        <a class="name" href="{% url 'project' id=project.id%}">{{ project.name}}</a>
                         <p class="description">{{project.description | truncatechars:60}}</p>
                     </div>
                     <img src="{{project.screenshot.url}}" alt="">
