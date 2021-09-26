@@ -7,7 +7,7 @@
 {% block content %}
 
 <!-- MODAL -->
-<form action="{% url 'project' project_id=project.id%}" method="POST" enctype="multipart/form-data" id="newProjectForm">
+<form action="{% url 'project' id=project.id%}" method="POST" enctype="multipart/form-data" id="newProjectForm">
     <div class="modal fade" id="newReviewModal" tabindex="-1" aria-labelledby="newProjectModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
