@@ -55,17 +55,14 @@ def login_user(request):
 def register_user(request):
     if request.user.is_authenticated:
         return redirect('/')
-
     else:
         form = CreateUserForm()
         title = 'New Account'
-
         if request.method == 'POST':
             form = CreateUserForm(request.POST)
             if form.is_valid():
                 form.save()
                 return redirect('login')
-
     context = {'form': form, 'title': title}
     return render(request, 'auth/register.html', context)
 
@@ -78,36 +75,42 @@ def logout_user(request):
 @login_required(login_url='login')
 def profile(request,id):
     profile=Profile.objects.get(id=id)
-    my_projects = Project.objects.all().filter(owner=profile.user)
+    my_projects = Project.objects.all().filter(owner=profile)
 
     if request.method == 'POST':
         update_form = UpdateProfileForm(request.POST, request.FILES, instance=profile.user)
         if update_form.is_valid():
-            update_form.save()
+            bio = update_form.cleaned_data["bio"]
+            role = update_form.cleaned_data["role"]
+            github = update_form.cleaned_data["github"]
+            linkedin = update_form.cleaned_data["linkedin"]
+            profile_pic = update_form.cleaned_data["profile_pic"]
+            profile.bio = bio
+            profile.role = role
+            profile.github = github
+            profile.linkedin = linkedin
+            profile.profile_pic = profile_pic
+            profile.save()
+        else:
+            print(update_form.errors)
     else:
+
         update_form = UpdateProfileForm()
-
-    context = {'update_form': update_form, 'my_projects': my_projects}
-
-    return render(request, 'profile.html', context)
+    return render(request, 'profile.html', locals())
 
 
 def project(request, id):
     project = Project.objects.get(id=id)
     reviews = Review.objects.all().filter(project=project)
-
     if request.method == 'POST':
         review_form = ReviewForm(request.POST, request.FILES)
         if review_form.is_valid():
             review_form.instance.reviewer = request.user.profile
             review_form.instance.project = project
             review_form.save()
-
     else:
         review_form = ReviewForm()
-
     context = {'project': project, 'reviews': reviews, 'review_form': review_form}
-
     return render(request, 'project.html', context)
 
 
@@ -115,7 +118,6 @@ class ProfileList(APIView):
     def get(self, request, format=None):
         all_profiles = Profile.objects.all()
         serializers = ProfileSerializer(all_profiles, many=True)
-
         return Response(serializers.data)
 
 
